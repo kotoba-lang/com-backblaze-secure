@@ -1,0 +1,4 @@
+/config/com-backblaze-secure.edn
+/.cpcache/
+/node_modules/
+*.log

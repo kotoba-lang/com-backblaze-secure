@@ -1,0 +1,17 @@
+{:paths ["src"]
+ ;; The actual server (src/com_backblaze_secure/server.cljs,
+ ;; credentials.cljs, b2_cli.cljs, audit.cljs) is Node-only (child_process/fs)
+ ;; and runs under nbb — see README for the exact nbb --classpath invocation.
+ ;; This deps.edn exists so the portable .cljc namespaces (redact.cljc,
+ ;; config.cljc — the security-critical pure logic) are also test/lint-able
+ ;; on the JVM, same pattern as kotoba-lang/mcp's own deps.edn.
+ :deps {io.github.kotoba-lang/mcp {:local/root "../org-anthropic-mcp"}}
+ :aliases
+ {:test {:extra-paths ["test"]
+         :extra-deps {io.github.cognitect-labs/test-runner
+                      {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
+         :main-opts ["-m" "cognitect.test-runner"]
+         :exec-fn cognitect.test-runner.api/test}
+  :lint {:replace-deps {clj-kondo/clj-kondo {:mvn/version "2024.11.14"}}
+         :main-opts ["-m" "clj-kondo.main" "--lint" "src" "test"
+                     "--fail-level" "error"]}}}

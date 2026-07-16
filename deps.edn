@@ -5,7 +5,8 @@
  ;; This deps.edn exists so the portable .cljc namespaces (redact.cljc,
  ;; config.cljc — the security-critical pure logic) are also test/lint-able
  ;; on the JVM, same pattern as kotoba-lang/mcp's own deps.edn.
- :deps {io.github.kotoba-lang/mcp {:local/root "../org-anthropic-mcp"}}
+ :deps {io.github.kotoba-lang/mcp {:local/root "../org-anthropic-mcp"}
+        io.github.kotoba-lang/secret-resolve {:local/root "../secret-resolve"}}
  :aliases
  {:test {:extra-paths ["test"]
          :extra-deps {io.github.cognitect-labs/test-runner

@@ -61,6 +61,11 @@ MCP tool call.
   (portable `.cljc` MCP manifest + JSON-RPC dispatch kernel this repo
   depends on for everything except the stdio transport and tool
   implementations).
+- A sibling checkout of
+  [`kotoba-lang/secret-resolve`](https://github.com/kotoba-lang/secret-resolve)
+  (shared env/1Password/Keychain credential resolution, ADR-2607161000 —
+  this repo's own `credentials.cljs` is a thin wrapper around it, not an
+  independent implementation).
 
 ## Setup
 
@@ -74,12 +79,13 @@ cp config/example.edn config/com-backblaze-secure.edn
 ## Run
 
 ```bash
-nbb --classpath "src:../org-anthropic-mcp/src" src/com_backblaze_secure/server.cljs
+nbb --classpath "src:../org-anthropic-mcp/src:../secret-resolve/src" src/com_backblaze_secure/server.cljs
 ```
 
-(`../org-anthropic-mcp` is the sibling `kotoba-lang/mcp` checkout path when
-both repos are laid out side by side under `orgs/kotoba-lang/`; override
-with `COM_BACKBLAZE_SECURE_MCP_KERNEL_SRC` if your layout differs, and
+(`../org-anthropic-mcp` and `../secret-resolve` are the sibling
+`kotoba-lang/mcp` / `kotoba-lang/secret-resolve` checkout paths when all
+three repos are laid out side by side under `orgs/kotoba-lang/` — adjust
+the `--classpath` argument directly if your layout differs. Set
 `COM_BACKBLAZE_SECURE_CONFIG` to point at a config file outside the repo.)
 
 ### MCP client config (e.g. Claude Code `.mcp.json`)
@@ -89,7 +95,7 @@ with `COM_BACKBLAZE_SECURE_MCP_KERNEL_SRC` if your layout differs, and
   "mcpServers": {
     "com-backblaze-secure": {
       "command": "nbb",
-      "args": ["--classpath", "src:../org-anthropic-mcp/src", "src/com_backblaze_secure/server.cljs"],
+      "args": ["--classpath", "src:../org-anthropic-mcp/src:../secret-resolve/src", "src/com_backblaze_secure/server.cljs"],
       "cwd": "/absolute/path/to/orgs/kotoba-lang/com-backblaze-secure"
     }
   }

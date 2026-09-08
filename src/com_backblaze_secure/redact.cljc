@@ -7,7 +7,7 @@
   transcript in the session that led to this repo). Every caller in
   com-backblaze-secure.b2-cli MUST route its parsed subprocess output
   through `redact` before returning it up the call stack."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def denylist-key-substrings
   "Lower-cased, separator-stripped substrings of a map key's name that mark
@@ -27,7 +27,7 @@
     :else        (str k)))
 
 (defn- normalize-key [k]
-  (-> (key-name k) str/lower-case (str/replace #"[-_]" "")))
+  (-> (key-name k) str/lower (str/replace #"[-_]" "")))
 
 (defn sensitive-key?
   [k]

@@ -17,7 +17,7 @@
   Every public fn's result is passed through com-backblaze-secure.redact
   before returning — callers (com-backblaze-secure.server) must not bypass
   these fns to shell out to `b2` directly."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [com-backblaze-secure.redact :as redact]))
 
 (def child-process (js/require "node:child_process"))

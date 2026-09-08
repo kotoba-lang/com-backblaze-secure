@@ -16,7 +16,7 @@
   material — see com-backblaze-secure.redact, which every b2-cli return
   value passes through before it reaches this namespace."
   (:require [clojure.edn :as edn]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [mcp.model :as m]
             [mcp.execute :as exec]
             [mcp.ports :as ports]

@@ -79,7 +79,7 @@ cp config/example.edn config/com-backblaze-secure.edn
 ## Run
 
 ```bash
-nbb --classpath "src:../org-anthropic-mcp/src:../secret-resolve/src" src/com_backblaze_secure/server.cljk
+kbb --backend sci --classpath "src:../org-anthropic-mcp/src:../secret-resolve/src" src/com_backblaze_secure/server.cljk
 ```
 
 (`../org-anthropic-mcp` and `../secret-resolve` are the sibling
@@ -119,7 +119,7 @@ corresponding capability:
 ## Test
 
 ```bash
-clojure -M:test   # redact/config pure-logic tests (portable .cljc)
+kbb -M:test   # redact/config pure-logic tests (portable .cljc)
 ```
 
 ## Known limitations

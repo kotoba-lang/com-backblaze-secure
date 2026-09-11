@@ -79,7 +79,7 @@ cp config/example.edn config/com-backblaze-secure.edn
 ## Run
 
 ```bash
-nbb --classpath "src:../org-anthropic-mcp/src:../secret-resolve/src" src/com_backblaze_secure/server.cljs
+nbb --classpath "src:../org-anthropic-mcp/src:../secret-resolve/src" src/com_backblaze_secure/server.cljk
 ```
 
 (`../org-anthropic-mcp` and `../secret-resolve` are the sibling
@@ -95,7 +95,7 @@ the `--classpath` argument directly if your layout differs. Set
   "mcpServers": {
     "com-backblaze-secure": {
       "command": "nbb",
-      "args": ["--classpath", "src:../org-anthropic-mcp/src:../secret-resolve/src", "src/com_backblaze_secure/server.cljs"],
+      "args": ["--classpath", "src:../org-anthropic-mcp/src:../secret-resolve/src", "src/com_backblaze_secure/server.cljk"],
       "cwd": "/absolute/path/to/orgs/kotoba-lang/com-backblaze-secure"
     }
   }

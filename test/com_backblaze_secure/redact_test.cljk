@@ -1,5 +1,5 @@
 (ns com-backblaze-secure.redact-test
-  (:require [clojure.test :refer [deftest testing is]]
+  (:require [kotoba.test :refer [deftest testing is]]
             [com-backblaze-secure.redact :as redact]))
 
 (deftest redacts-top-level-denylisted-keys

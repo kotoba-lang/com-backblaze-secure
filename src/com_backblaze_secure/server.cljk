@@ -15,7 +15,7 @@
   No tool response and no audit-log line ever contains raw credential
   material — see com-backblaze-secure.redact, which every b2-cli return
   value passes through before it reaches this namespace."
-  (:require [clojure.edn :as edn]
+  (:require [kotoba.lang.edn :as edn]
             [kotoba.lang.text :as str]
             [mcp.model :as m]
             [mcp.execute :as exec]

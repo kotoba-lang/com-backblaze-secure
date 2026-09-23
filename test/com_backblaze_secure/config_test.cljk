@@ -1,5 +1,5 @@
 (ns com-backblaze-secure.config-test
-  (:require [clojure.test :refer [deftest testing is]]
+  (:require [kotoba.test :refer [deftest testing is]]
             [com-backblaze-secure.config :as config]))
 
 (def sample-config
